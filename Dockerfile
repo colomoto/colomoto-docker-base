@@ -42,4 +42,9 @@ RUN CONDA_VERSION="4.3.30" && \
     rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
+EXPOSE 8888
+WORKDIR /notebook
+ENTRYPOINT ["/usr/bin/tini", "--", "colomoto-env"]
+CMD ["colomoto-nb", "--NotebookApp.token="]
+COPY bin/* /usr/bin/
 
