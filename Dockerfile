@@ -34,6 +34,7 @@ RUN CONDA_VERSION="4.3.30" && \
         nomkl \
         notebook \
         pandas \
+        matplotlib \
         pydot \
         pygraphviz \
         networkx=2.0 \
