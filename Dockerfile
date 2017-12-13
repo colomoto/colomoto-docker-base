@@ -31,14 +31,15 @@ RUN CONDA_VERSION="4.3.30" && \
     conda config --add channels conda-forge && \
     conda config --add channels colomoto && \
     conda install --no-update-deps  -y \
+        ipywidgets \
+        matplotlib \
+        networkx=2.0 \
         nomkl \
         notebook \
+        openjdk=8.0.144 \
         pandas \
-        matplotlib \
         pydot \
         pygraphviz \
-        networkx=2.0 \
-        openjdk=8.0.144 \
         && \
     rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
