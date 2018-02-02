@@ -44,6 +44,10 @@ RUN CONDA_VERSION="4.3.31" && \
     rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
+ARG USER_UID=1000
+RUN useradd -u $USER_UID -m -d /notebook -s /bin/bash user
+USER user
+
 EXPOSE 8888
 WORKDIR /notebook
 ENTRYPOINT ["/usr/bin/tini", "--", "colomoto-env"]
