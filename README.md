@@ -9,8 +9,7 @@ First fetch the image with
 
     $ docker pull colomoto/colomoto-docker-base:TAG
 
-where `TAG` is the version of the image, among [colomoto/colomoto-docker tags](https://hub.docker.com/r/colomoto/colomoto-docker/tags/).
-It can be omited when using `latest` version.
+where `TAG` is the version of the image, among [colomoto/colomoto-docker-base tags](https://hub.docker.com/r/colomoto/colomoto-docker-base/tags/).
 
 The image can be ran using
 
