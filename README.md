@@ -1,6 +1,6 @@
-# colomoto-docker
+# colomoto-docker-base
 
-[![](https://images.microbadger.com/badges/image/colomoto/colomoto-docker-base:latest.svg)](http://microbadger.com/images/colomoto/colomoto-docker-base:latest "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/colomoto/colomoto-docker-base.svg)](http://microbadger.com/images/colomoto/colomoto-docker-base "Get your own image badge on microbadger.com")
 
 ## Quick usage guide
 
@@ -27,9 +27,3 @@ This image provides a base system for the [CoLoMoTo docker image](https://github
 
 It contains a [conda](https://conda.io/miniconda.html) installation with the [Jupyter notebook](http://jupyter.org),
 the [Pandas data analysis library](https://pandas.pydata.org/), and a [Java runtime](http://openjdk.java.net).
-
-
-## Contribute
-
-Coming soon: instruction to add/update your software
-
