@@ -33,7 +33,7 @@ RUN CONDA_VERSION="4.4.10" && \
     conda install --no-update-deps  -y \
         ipywidgets \
         matplotlib \
-        networkx=2.0 \
+        networkx=2.1 \
         nomkl \
         notebook \
         openjdk=8.0.144 \
