@@ -16,12 +16,12 @@ RUN apt-get update --fix-missing && \
     rm -rf /var/lib/apt/lists/*
 
 
-RUN TINI_VERSION="0.16.1" && \
+RUN TINI_VERSION="0.17.0" && \
     wget --quiet https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini_${TINI_VERSION}-amd64.deb && \
     dpkg -i tini_${TINI_VERSION}-amd64.deb && \
     rm *.deb
 
-RUN CONDA_VERSION="4.3.31" && \
+RUN CONDA_VERSION="4.4.10" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
