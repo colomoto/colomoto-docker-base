@@ -38,7 +38,7 @@ RUN CONDA_VERSION="4.5.1" && \
         notebook \
         openjdk=8.0.144 \
         pandas \
-        pydot \
+        pydot=1.2.4 \
         pygraphviz \
         && \
     rm /opt/conda/jre/src.zip && \
