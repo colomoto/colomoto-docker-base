@@ -27,6 +27,7 @@ RUN CONDA_VERSION="4.6.14" && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
     conda config --set auto_update_conda False && \
+    conda config --add channels r && \
     conda config --add channels bioconda && \
     conda config --add channels conda-forge && \
     conda config --add channels colomoto && \
@@ -43,6 +44,8 @@ RUN CONDA_VERSION="4.6.14" && \
         pandas \
         pydot=1.4.1 \
         pygraphviz \
+        r \
+        rpy2 \
         seaborn \
         && \
     rm /opt/conda/jre/src.zip && \
