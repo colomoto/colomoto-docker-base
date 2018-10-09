@@ -30,6 +30,9 @@ RUN CONDA_VERSION="4.5.11" && \
     conda config --add channels bioconda && \
     conda config --add channels conda-forge && \
     conda config --add channels colomoto && \
+    conda install --no-update-deps -y \
+        -c colomoto/label/fake \
+        pyqt && \
     conda install --no-update-deps  -y \
         ipywidgets \
         matplotlib \
