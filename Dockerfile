@@ -21,7 +21,7 @@ RUN TINI_VERSION="0.18.0" && \
     dpkg -i tini_${TINI_VERSION}-amd64.deb && \
     rm *.deb
 
-RUN CONDA_VERSION="4.5.1" && \
+RUN CONDA_VERSION="4.5.11" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -40,6 +40,7 @@ RUN CONDA_VERSION="4.5.1" && \
         pandas \
         pydot=1.2.4 \
         pygraphviz \
+        seaborn \
         && \
     rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
