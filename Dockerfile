@@ -44,7 +44,6 @@ RUN CONDA_VERSION="4.6.14" && \
         pandas=0.24.2=py37hf484d3e_0 \
         pydot=1.4.1=py37_1000 \
         pygraphviz=1.5=py37h14c3975_1000 \
-        r=3.5.1=r351_0 \
         rpy2=2.9.1=py37r351h035aef0_0 \
         seaborn=0.9.0=py_1 \
         && \
