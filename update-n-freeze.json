@@ -1,0 +1,12 @@
+{
+"pybuild": "py37",
+"channels": ["colomoto", "r", "bioconda", "conda-forge"],
+"force-channel": {
+    "pydot": "conda-forge"
+},
+"override": {
+    "openjdk": "8.0.144"
+},
+"blacklist-dependencies": [],
+"blacklist-builds": ["^(py..)?mro"]
+}
