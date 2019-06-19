@@ -46,6 +46,7 @@ RUN CONDA_VERSION="4.6.14" && \
         pygraphviz=1.5=py37h14c3975_1000 \
         rpy2=2.9.1=py37r351h035aef0_0 \
         seaborn=0.9.0=py_1 \
+        simplegeneric=0.8.1=py_1 \
         && \
     rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
