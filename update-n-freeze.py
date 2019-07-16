@@ -62,10 +62,10 @@ def get_latest_version(pkg, channels, cfg):
                     builds[v].add(b)
                 print(builds)
                 for v in reversed(data["versions"]):
-                    for b in reversed(data["builds"]):
-                        if v in builds and b in builds[v]:
-                            print("### found {}, {}".format(v, b))
-                            return "{}={}".format(v, b)
+                    if v in builds:
+                        b = max(builds[v])
+                        print("### found {}, {}".format(v, b))
+                        return "{}={}".format(v, b)
         except HTTPError:
             continue
     raise ValueError

@@ -1,9 +1,7 @@
 {
 "pybuild": "py37",
-"channels": ["colomoto", "r", "bioconda", "conda-forge"],
-"force-channel": {
-    "pydot": "conda-forge"
-},
+"channels": ["conda-forge"],
+"force-channel": {},
 "override": {
     "openjdk": "8.0.144"
 },

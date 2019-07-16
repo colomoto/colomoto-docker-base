@@ -29,12 +29,11 @@ RUN CONDA_VERSION="4.6.14" && \
     conda config --set auto_update_conda False && \
     conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
-    conda config --add channels r && \
     conda config --add channels colomoto && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
         pyqt=5.9.9999=0 && \
-    conda install -y \
+    conda install --no-update-deps -y \
         ipywidgets=7.5.0=py_0 \
         matplotlib=3.1.1=py37_0 \
         networkx=2.3=py_0 \
@@ -43,8 +42,8 @@ RUN CONDA_VERSION="4.6.14" && \
         openjdk=8.0.144 \
         pandas=0.24.2=py37hf484d3e_0 \
         pydot=1.4.1=py37_1000 \
-        pygraphviz=1.5=py37h14c3975_1000 \
-        rpy2=2.9.4=py37r36h481b005_0 \
+        pygraphviz=1.5=py37h470a237_0 \
+        rpy2=2.9.4=py37r351h941a26a_1 \
         seaborn=0.9.0=py_1 \
         simplegeneric=0.8.1=py_1 \
         && \
