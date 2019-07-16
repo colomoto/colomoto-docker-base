@@ -35,16 +35,16 @@ RUN CONDA_VERSION="4.6.14" && \
         -c colomoto/label/fake \
         pyqt=5.9.9999=0 && \
     conda install -y \
-        ipywidgets=7.4.2=py_0 \
-        matplotlib=3.1.0=py37_1 \
+        ipywidgets=7.5.0=py_0 \
+        matplotlib=3.1.1=py37_0 \
         networkx=2.3=py_0 \
         nomkl \
-        notebook=5.7.8=py37_1 \
+        notebook=6.0.0=py37_0 \
         openjdk=8.0.144 \
         pandas=0.24.2=py37hf484d3e_0 \
         pydot=1.4.1=py37_1000 \
         pygraphviz=1.5=py37h14c3975_1000 \
-        rpy2=2.9.1=py37r351h035aef0_0 \
+        rpy2=2.9.4=py37r36h481b005_0 \
         seaborn=0.9.0=py_1 \
         simplegeneric=0.8.1=py_1 \
         && \
