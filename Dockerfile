@@ -34,6 +34,7 @@ RUN CONDA_VERSION="4.6.14" && \
         -c colomoto/label/fake \
         pyqt=5.9.9999=0 && \
     conda install --no-update-deps -y \
+        libgfortran=3.0.0=1 \
         ipywidgets=7.5.0=py_0 \
         matplotlib=3.1.1=py37_0 \
         networkx=2.3=py_0 \
