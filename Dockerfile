@@ -32,9 +32,8 @@ RUN CONDA_VERSION="4.7.10" && \
     conda config --add channels colomoto && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
-        pyqt
-
-RUN conda install --no-update-deps -y \
+        pyqt && \
+    conda install --no-update-deps -y \
         libgfortran \
         ipywidgets \
         matplotlib \
