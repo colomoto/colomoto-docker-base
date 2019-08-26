@@ -61,3 +61,5 @@ ENTRYPOINT ["/usr/bin/tini", "--", "colomoto-env"]
 CMD ["colomoto-nb", "--NotebookApp.token="]
 COPY bin/* /usr/bin/
 
+ARG SOURCE_COMMIT
+ENV COLOMOTO_BASE_SOURCE_COMMIT=$SOURCE_COMMIT
