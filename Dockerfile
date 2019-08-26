@@ -21,7 +21,7 @@ RUN TINI_VERSION="0.18.0" && \
     dpkg -i tini_${TINI_VERSION}-amd64.deb && \
     rm *.deb
 
-RUN CONDA_VERSION="4.6.14" && \
+RUN CONDA_VERSION="4.7.10" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -32,21 +32,21 @@ RUN CONDA_VERSION="4.6.14" && \
     conda config --add channels colomoto && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
-        pyqt=5.9.9999=0 && \
-    conda install --no-update-deps -y \
-        libgfortran=3.0.0=1 \
-        ipywidgets=7.5.0=py_0 \
-        matplotlib=3.1.1=py37_0 \
-        networkx=2.3=py_0 \
+        pyqt
+
+RUN conda install --no-update-deps -y \
+        libgfortran \
+        ipywidgets \
+        matplotlib \
+        networkx \
         nomkl \
-        notebook=6.0.0=py37_0 \
+        notebook \
         openjdk=8.0.144 \
-        pandas=0.24.2=py37hf484d3e_0 \
-        pydot=1.4.1=py37_1000 \
-        pygraphviz=1.5=py37h470a237_0 \
-        rpy2=2.9.4=py37r351h941a26a_1 \
-        seaborn=0.9.0=py_1 \
-        simplegeneric=0.8.1=py_1 \
+        pandas \
+        pydot \
+        pygraphviz \
+        rpy2 \
+        seaborn \
         && \
     rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
