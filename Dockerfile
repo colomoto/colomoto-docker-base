@@ -26,6 +26,7 @@ RUN CONDA_VERSION="4.7.10" && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
+    conda update -n base -c defaults conda && \
     conda config --set auto_update_conda False && \
     conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
@@ -33,17 +34,17 @@ RUN CONDA_VERSION="4.7.10" && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
         pyqt && \
-    conda install --no-update-deps -y \
+    conda install -y \
         libgfortran \
         ipywidgets \
-        matplotlib \
+        'matplotlib>=1.3.1' \
         networkx \
         nomkl \
         notebook \
         openjdk=8.0.144 \
         pandas \
         pydot \
-        pygraphviz \
+        'pygraphviz>=1.5' \
         rpy2 \
         seaborn \
         && \
