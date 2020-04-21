@@ -32,7 +32,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-            name: ${{ env.IMAGE }}
+            name: ${{ env.REF }}
             files: |
                 debian-installed.txt
                 conda-environment-strict.yml
