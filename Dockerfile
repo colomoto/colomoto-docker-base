@@ -1,8 +1,16 @@
-FROM debian:stretch-slim
-MAINTAINER CoLoMoTo Group <contact@colomoto.org>
+FROM debian:stable-slim
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
+
+ARG USER=user
+ARG USER_UID=1000
+RUN useradd -u $USER_UID -m -d /notebook -s /bin/bash $USER
+
+EXPOSE 8888
+WORKDIR /notebook
+ENTRYPOINT ["/usr/bin/tini", "--", "colomoto-env"]
+CMD ["colomoto-nb", "--NotebookApp.token="]
 
 RUN apt-get update --fix-missing && \
     mkdir /usr/share/man/man1 && touch /usr/share/man/man1/rmid.1.gz.dpkg-tmp && \
@@ -15,13 +23,12 @@ RUN apt-get update --fix-missing && \
     apt clean -y && \
     rm -rf /var/lib/apt/lists/*
 
-
-RUN TINI_VERSION="0.18.0" && \
+RUN TINI_VERSION="0.19.0" && \
     wget --quiet https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini_${TINI_VERSION}-amd64.deb && \
     dpkg -i tini_${TINI_VERSION}-amd64.deb && \
     rm *.deb
 
-RUN CONDA_VERSION="4.7.10" && \
+RUN CONDA_VERSION="py37_4.8.2" && \
     echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
@@ -51,15 +58,9 @@ RUN CONDA_VERSION="4.7.10" && \
     rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
-ARG USER_UID=1000
-RUN useradd -u $USER_UID -m -d /notebook -s /bin/bash user
-USER user
-
-EXPOSE 8888
-WORKDIR /notebook
-ENTRYPOINT ["/usr/bin/tini", "--", "colomoto-env"]
-CMD ["colomoto-nb", "--NotebookApp.token="]
 COPY bin/* /usr/bin/
+
+USER user
 
 ARG SOURCE_COMMIT
 ENV COLOMOTO_BASE_SOURCE_COMMIT=$SOURCE_COMMIT
