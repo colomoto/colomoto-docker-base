@@ -1,4 +1,4 @@
-name: Announce release
+name: Push
 
 on: [push]
 
@@ -9,28 +9,30 @@ jobs:
       - run: |
           REF=${GITHUB_REF##*/}
           echo ::set-env name=REF::${REF}
-          echo ::set-env name=IMAGE_NAME::colomoto/colomoto-docker-base:${REF}
+          echo ::set-env name=IMAGE::colomoto/colomoto-docker-base:${REF}
       - uses: actions/checkout@v2
-      - run: docker build -t ${IMAGE_NAME} .
+      - run: docker build -t ${IMAGE} .
       - name: Login to docker hub
         uses: actions-hub/docker/login@master
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Push image :next
+      - name: Push image
         uses: actions-hub/docker@master
         with:
-          args: push ${IMAGE_NAME}
+          args: push ${IMAGE}
       - name: Release info
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-            docker run --rm ${IMAGE_NAME} apt list --installed > debian-installed.txt
-            docker run --rm ${IMAGE_NAME} conda env export > conda-environment-strict.yml
+            docker run --rm ${IMAGE} apt list --installed > debian-installed.txt
+            docker run --rm ${IMAGE} conda env export > conda-environment-strict.yml
       - name: Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-            name: ${IMAGE_NAME}
+            name: ${IMAGE}
             files: |
                 debian-installed.txt
                 conda-environment-strict.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
