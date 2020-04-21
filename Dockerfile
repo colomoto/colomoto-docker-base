@@ -18,7 +18,7 @@ RUN apt-get update --fix-missing && \
         bzip2 \
         ca-certificates \
         wget \
-        libxrender1 libice6 libxext6 libsm6 \
+        openjdk-11-jre-headless \
         && \
     apt clean -y && \
     rm -rf /var/lib/apt/lists/*
@@ -47,14 +47,12 @@ RUN CONDA_VERSION="py37_4.8.2" && \
         networkx \
         nomkl \
         notebook \
-        openjdk=8.0.144 \
         pandas \
         pydot \
         'pygraphviz>=1.5' \
         rpy2 \
         seaborn \
         && \
-    rm /opt/conda/jre/src.zip && \
     conda clean -y --all && rm -rf /opt/conda/pkgs
 
 COPY bin/* /usr/bin/
