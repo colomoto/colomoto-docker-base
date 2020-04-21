@@ -11,7 +11,9 @@ jobs:
           echo ::set-env name=REF::${REF}
           echo ::set-env name=IMAGE::colomoto/colomoto-docker-base:${REF}
       - uses: actions/checkout@v2
-      - run: docker build -t ${IMAGE} .
+      - run: |
+          docker pull colomoto/colomoto-docker-base:master
+          docker build --cache-from=colomoto/colomoto-docker-base:master -t ${IMAGE} .
       - name: Login to docker hub
         uses: actions-hub/docker/login@master
         env:
