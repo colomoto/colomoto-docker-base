@@ -36,7 +36,6 @@ RUN CONDA_VERSION="py37_4.8.2" && \
     conda update -n base -c defaults conda && \
     conda config --set auto_update_conda False && \
     conda config --add channels conda-forge && \
-    conda config --add channels bioconda && \
     conda config --add channels colomoto && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
