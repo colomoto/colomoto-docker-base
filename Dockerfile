@@ -39,6 +39,7 @@ RUN CONDA_VERSION="py37_4.8.2" && \
     conda config --add channels colomoto && \
     conda install --no-update-deps -y \
         -c colomoto/label/fake \
+        openjdk \
         pyqt && \
     conda install -y \
         libgfortran \
